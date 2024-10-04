@@ -1,4 +1,12 @@
 import Card from "../card";
+import DoughnutChart from "./doughnut-chart";
+
+// const data = [
+//   {
+//     overallClassScore: 68,
+//     assignedTasks: 30,
+//   },
+// ];
 
 const GradesOverview = () => {
   return (
@@ -22,6 +30,7 @@ const GradesOverview = () => {
           </h4>
         </div>
       </div>
+      <DoughnutChart />
       <div className="flex flex-col gap-[3rem] h-full  justify-between">
         <div className="flex flex-col gap-0">
           <h3 className="text-[#0b0b0b] w-8/12  leading-7 font-semibold font-raleway  text-[1.8rem]">
