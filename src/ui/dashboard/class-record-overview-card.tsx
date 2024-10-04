@@ -34,7 +34,7 @@ const ClassRecordOverviewCard = ({
         <p className="text-[#0b0b0b] font-medium font-poppins text-[1.4rem]">
           23% of class
         </p>
-        <p className="text-gray-500 text-[1.2rem] font-medium font-poppins">
+        <p className="text-gray-600 text-[1.2rem] font-medium font-poppins">
           grade avg: {gradeAverage}%
         </p>
       </div>
