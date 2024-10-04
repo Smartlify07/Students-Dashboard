@@ -1,4 +1,5 @@
 import StudentsListOverviewTabs from "./student-list-overview-tabs";
+import StudentsListTableDesktop from "./students-list-table";
 
 const StudentsListOverview = () => {
   return (
@@ -8,8 +9,8 @@ const StudentsListOverview = () => {
           Students Proficiency
         </h1>
         <StudentsListOverviewTabs />
-        <StudentsListOverview />
       </div>
+      <StudentsListTableDesktop />
     </section>
   );
 };
