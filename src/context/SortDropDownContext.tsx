@@ -19,9 +19,10 @@ type SortDropdownProviderProps = {
   children: ReactNode;
 };
 
-export const SortDropdownContext = createContext<
-  SortDropdownContextType | undefined
->(undefined);
+export const SortDropdownContext =
+  createContext<SortDropdownContextType | null>({
+    whatToSort: Fields.StudentName,
+  });
 
 const SortDropdownProvider = ({ children }: SortDropdownProviderProps) => {
   const [sortOptions, setSortOptions] = useState<SortDropdownContextType>({
