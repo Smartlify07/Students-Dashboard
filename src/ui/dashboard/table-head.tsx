@@ -1,33 +1,46 @@
 import { IconType } from "react-icons";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import SortDropdown from "../sort-dropdown";
 import { motion } from "framer-motion";
+import {
+  Fields,
+  SortDropdownContextType,
+} from "../../context/SortDropDownContext";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 type TableHeadProps = {
   label: string;
   Icon: IconType;
+  realPropertyName: Fields;
   justifyPosition?: "justify-end" | "justify-start" | "justify-center";
 };
 
-export type DropDownState = {
+export type DropDownProps = SortDropdownContextType & {
   isOpen?: boolean;
+  setIsOpen?: Dispatch<SetStateAction<DropDownProps>>;
 };
 const TableHead = ({
   label,
   Icon,
   justifyPosition = "justify-center",
+  realPropertyName,
 }: TableHeadProps) => {
-  const [isOpen, setIsOpen] = useState<DropDownState>({
+  const [isOpen, setIsOpen] = useState<DropDownProps>({
     isOpen: false,
   });
 
   const toggleIsOpen = () => {
     setIsOpen({ isOpen: !isOpen.isOpen });
   };
-
+  const myRef = useClickOutside(() => {
+    setIsOpen((prevState) => ({ ...prevState, isOpen: false }));
+  });
   return (
     <th className="font-medium relative pb-[1.2rem] ">
-      <div className={`flex items-center gap-[0.5rem] ${justifyPosition}`}>
+      <div
+        ref={myRef}
+        className={`flex items-center gap-[0.5rem] ${justifyPosition}`}
+      >
         {label}
 
         <motion.div
@@ -41,7 +54,11 @@ const TableHead = ({
         </motion.div>
       </div>
 
-      <SortDropdown isOpen={isOpen.isOpen} />
+      <SortDropdown
+        setIsOpen={setIsOpen}
+        whatToSort={realPropertyName}
+        isOpen={isOpen.isOpen}
+      />
     </th>
   );
 };

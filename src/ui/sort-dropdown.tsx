@@ -1,8 +1,11 @@
 import { BsArrowDown, BsArrowUp } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
-import { DropDownState } from "./dashboard/table-head";
+import { DropDownProps } from "./dashboard/table-head";
+import { useSortDropDownContext } from "../hooks/useSortDropDownContext";
 
-const SortDropdown = ({ isOpen }: DropDownState) => {
+const SortDropdown = ({ isOpen, whatToSort }: DropDownProps) => {
+  const { handleSortOption } = useSortDropDownContext();
+
   return (
     <AnimatePresence mode="popLayout">
       {isOpen && (
@@ -17,6 +20,10 @@ const SortDropdown = ({ isOpen }: DropDownState) => {
           className=" border z-[1000] backdrop-grayscale-[1] absolute top-[3rem] bg-[#fefefe] flex rounded-[1.2rem] py-[1.2rem] flex-col gap-[0.2rem]"
         >
           <span
+            onClick={() => {
+              if (handleSortOption && whatToSort)
+                handleSortOption(whatToSort, "ascending");
+            }}
             className="hover:bg-gray-100 transition-all px-[1.4rem] py-[1rem]  flex items-center whitespace-nowrap text-[#092307]  cursor-pointer gap-[0.2rem]"
             role="input"
           >
@@ -24,6 +31,10 @@ const SortDropdown = ({ isOpen }: DropDownState) => {
             Sort Ascending
           </span>
           <span
+            onClick={() => {
+              if (handleSortOption && whatToSort)
+                handleSortOption(whatToSort, "descending");
+            }}
             className="hover:bg-gray-100 transition-all px-[1.4rem] py-[1rem] flex items-center whitespace-nowrap  text-[#ca2323] cursor-pointer gap-[0.2rem]"
             role="input"
           >

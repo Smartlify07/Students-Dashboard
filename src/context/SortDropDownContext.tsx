@@ -1,10 +1,17 @@
 import { createContext, ReactNode, useState } from "react";
 
+export enum Fields {
+  AverageScore = "averageScore",
+  WorkCompleted = "workCompleted",
+  StudentName = "studentName",
+  Grade = "grade",
+}
+
 export type SortDropdownContextType = {
-  whatToSort?: "averageScore" | "workCompleted" | "studentName" | null;
+  whatToSort?: Fields;
   howToSort?: "ascending" | "descending" | null;
-  handleSortOption: (
-    whatToSort: "averageScore" | "workCompleted" | "studentName" | null,
+  handleSortOption?: (
+    whatToSort: Fields,
     howToSort: "ascending" | "descending" | null
   ) => void;
 };
@@ -18,7 +25,7 @@ export const SortDropdownContext = createContext<
 
 const SortDropdownProvider = ({ children }: SortDropdownProviderProps) => {
   const [sortOptions, setSortOptions] = useState<SortDropdownContextType>({
-    whatToSort: null,
+    whatToSort: Fields.StudentName,
     howToSort: null,
     handleSortOption: (whatToSort, howToSort) => {
       setSortOptions((prevState) => ({
@@ -28,6 +35,7 @@ const SortDropdownProvider = ({ children }: SortDropdownProviderProps) => {
       }));
     },
   });
+  console.log(sortOptions.whatToSort);
 
   return (
     <SortDropdownContext.Provider

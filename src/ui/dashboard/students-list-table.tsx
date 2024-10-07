@@ -4,6 +4,7 @@ import { studentsData } from "../../utils/data";
 import { StudentListItemDesktop } from "./student-list-item-desktop";
 import { Link, useLocation } from "react-router-dom";
 import TableHead from "./table-head";
+import { Fields } from "../../context/SortDropDownContext";
 
 const StudentsListTableDesktop = () => {
   const pathname = useLocation().pathname;
@@ -16,14 +17,24 @@ const StudentsListTableDesktop = () => {
               justifyPosition="justify-start"
               Icon={FaAngleDown}
               label="Full name"
+              realPropertyName={Fields.StudentName}
             />
-            <TableHead Icon={FaAngleDown} label="Work Completed" />
+            <TableHead
+              Icon={FaAngleDown}
+              realPropertyName={Fields.WorkCompleted}
+              label="Work Completed"
+            />
             <TableHead
               Icon={FaAngleDown}
               label="Average Score
 "
+              realPropertyName={Fields.AverageScore}
             />
-            <TableHead Icon={FaAngleDown} label="Grade" />
+            <TableHead
+              Icon={FaAngleDown}
+              realPropertyName={Fields.Grade}
+              label="Grade"
+            />
           </tr>
         </thead>
         <tbody>
