@@ -1,12 +1,7 @@
+import { calculateEntireClassAverage } from "../../utils/calculateEntireClassAverage";
+import { studentsData } from "../../utils/data";
 import Card from "../card";
 import DoughnutChart from "./doughnut-chart";
-
-// const data = [
-//   {
-//     overallClassScore: 68,
-//     assignedTasks: 30,
-//   },
-// ];
 
 const GradesOverview = () => {
   return (
@@ -17,7 +12,7 @@ const GradesOverview = () => {
             Overall Class Score
           </h3>
           <h1 className="text-[#0b0b0b] font-semibold text-[3.5rem] font-poppins">
-            68%
+            {calculateEntireClassAverage(studentsData)}%
           </h1>
         </div>
 
@@ -26,7 +21,7 @@ const GradesOverview = () => {
             Grade average
           </p>
           <h4 className="font-semibold text-[1.4rem] text-[#0b0b0b] font-poppins">
-            71%
+            {calculateEntireClassAverage(studentsData)}%
           </h4>
         </div>
       </div>
@@ -46,7 +41,7 @@ const GradesOverview = () => {
             Grade average
           </p>
           <h4 className="font-semibold text-[1.4rem] text-[#0b0b0b] font-poppins">
-            71%
+            {calculateEntireClassAverage(studentsData)}%
           </h4>
         </div>
       </div>

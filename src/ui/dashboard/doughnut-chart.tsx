@@ -1,5 +1,7 @@
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { calculateEntireClassAverage } from "../../utils/calculateEntireClassAverage";
+import { studentsData } from "../../utils/data";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DoughnutChart = () => {
@@ -8,7 +10,7 @@ const DoughnutChart = () => {
     datasets: [
       {
         label: "Class",
-        data: [68, 40],
+        data: [45, calculateEntireClassAverage(studentsData)],
         backgroundColor: ["#FFC329", "#86D718"],
       },
     ],

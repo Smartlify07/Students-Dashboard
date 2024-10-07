@@ -1,3 +1,4 @@
+import { studentsData } from "../../utils/data";
 import PupilsAvatars from "./pupils-avatars";
 
 const Header = () => {
@@ -10,12 +11,12 @@ const Header = () => {
         <div className="flex gap-[0.5rem] items-end">
           <PupilsAvatars />
           <span className="rounded-full relative  flex items-center justify-center bg-white w-[3rem] h-[3rem] text-slate-900">
-            <p className="font-semibold text-[1.2rem] font-poppins">+8</p>
+            <p className="font-semibold text-[1.2rem] font-poppins">
+              +{studentsData.length - 3}
+            </p>
           </span>
         </div>
       </div>
-
-      <div className="rounded-full w-[3rem] h-[3rem] bg-white"></div>
     </section>
   );
 };
