@@ -8,11 +8,11 @@ export enum Fields {
 }
 
 export type SortDropdownContextType = {
-  whatToSort?: Fields;
-  howToSort?: "ascending" | "descending" | null;
+  whatToSort?: Fields.AverageScore | Fields.StudentName | Fields.WorkCompleted;
+  howToSort?: "ascending" | "descending";
   handleSortOption?: (
-    whatToSort: Fields,
-    howToSort: "ascending" | "descending" | null
+    whatToSort: Fields.AverageScore | Fields.StudentName | Fields.WorkCompleted,
+    howToSort: "ascending" | "descending"
   ) => void;
 };
 type SortDropdownProviderProps = {
@@ -22,12 +22,13 @@ type SortDropdownProviderProps = {
 export const SortDropdownContext =
   createContext<SortDropdownContextType | null>({
     whatToSort: Fields.StudentName,
+    howToSort: "ascending",
   });
 
 const SortDropdownProvider = ({ children }: SortDropdownProviderProps) => {
   const [sortOptions, setSortOptions] = useState<SortDropdownContextType>({
     whatToSort: Fields.StudentName,
-    howToSort: null,
+    howToSort: "ascending",
     handleSortOption: (whatToSort, howToSort) => {
       setSortOptions((prevState) => ({
         ...prevState,

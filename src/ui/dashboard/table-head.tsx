@@ -11,7 +11,10 @@ import { useClickOutside } from "../../hooks/useClickOutside";
 type TableHeadProps = {
   label: string;
   Icon: IconType;
-  realPropertyName: Fields;
+  realPropertyName:
+    | Fields.AverageScore
+    | Fields.StudentName
+    | Fields.WorkCompleted;
   justifyPosition?: "justify-end" | "justify-start" | "justify-center";
 };
 

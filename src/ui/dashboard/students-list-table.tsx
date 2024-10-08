@@ -1,13 +1,23 @@
 import Card from "../card";
 import { FaAngleDown } from "react-icons/fa6";
-import { studentsData } from "../../utils/data";
+import { Student, studentsData } from "../../utils/data";
 import { StudentListItemDesktop } from "./student-list-item-desktop";
 import { Link, useLocation } from "react-router-dom";
 import TableHead from "./table-head";
 import { Fields } from "../../context/SortDropDownContext";
+import { useEffect, useState } from "react";
+import { sortFields } from "../../utils/sortFields";
+import { useSortDropDownContext } from "../../hooks/useSortDropDownContext";
 
-const StudentsListTableDesktop = () => {
+const StudentsListTableDesktop = ({ maxLength }: { maxLength: number }) => {
   const pathname = useLocation().pathname;
+  const [students, setStudents] = useState<Student[]>(studentsData);
+  const { whatToSort, howToSort } = useSortDropDownContext();
+  useEffect(() => {
+    const sorted = sortFields(whatToSort!, howToSort!, students);
+    setStudents(sorted);
+  }, [whatToSort, howToSort]);
+
   return (
     <Card className="bg-white flex flex-col px-[2.4rem]  py-[2.4rem]">
       <table className="w-full border-spacing-y-[0.5rem] border-separate">
@@ -32,13 +42,13 @@ const StudentsListTableDesktop = () => {
             />
             <TableHead
               Icon={FaAngleDown}
-              realPropertyName={Fields.Grade}
+              realPropertyName={Fields.AverageScore}
               label="Grade"
             />
           </tr>
         </thead>
         <tbody>
-          {studentsData.slice(0, 4).map((student) => (
+          {students.slice(0, maxLength ? maxLength : -1).map((student) => (
             <StudentListItemDesktop key={student.id} {...student} />
           ))}
         </tbody>
