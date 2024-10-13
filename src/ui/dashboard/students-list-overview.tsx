@@ -10,7 +10,7 @@ const StudentsListOverview = () => {
         </h1>
         <StudentsListOverviewTabs />
       </div>
-      <StudentsListTableDesktop />
+      <StudentsListTableDesktop maxLength={5} />
     </section>
   );
 };

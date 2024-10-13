@@ -13,7 +13,7 @@ export const StudentListItemDesktop = ({
   const { studentName, profileImage } = profile;
 
   return (
-    <tr className="w-full  h-[9rem] rounded-[1.2rem]  font-poppins">
+    <tr className="w-full  h-[9rem] rounded-[1.2rem] hidden md:table-row  font-poppins">
       <td
         style={{ background: lightBgColor }}
         className=" flex rounded-tl-[1.2rem] rounded-bl-[1.2rem]    h-[9rem]  items-center   gap-[2rem]"

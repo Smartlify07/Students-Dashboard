@@ -6,14 +6,32 @@ export const sortFields = (
   howToSort: "ascending" | "descending",
   data: Student[]
 ) => {
-  const sortedItems = data
+  const copiedData = [...data];
+  const sortedItems = copiedData
     .sort((a, b) => {
       if (whatToSort === Fields.StudentName) {
         if (howToSort === "ascending") {
-          if (a.profile[whatToSort] < b.profile[whatToSort]) return -1;
+          if (
+            a.profile[whatToSort].toLowerCase() <
+            b.profile[whatToSort].toLowerCase()
+          )
+            return -1;
+          if (
+            a.profile[whatToSort].toLowerCase() >
+            b.profile[whatToSort].toLowerCase()
+          )
+            return 1;
         } else if (howToSort === "descending") {
-          console.log("descending");
-          if (a.profile[whatToSort] < b.profile[whatToSort]) return 1;
+          if (
+            a.profile[whatToSort].toLowerCase() <
+            b.profile[whatToSort].toLowerCase()
+          )
+            return 1;
+          if (
+            a.profile[whatToSort].toLowerCase() >
+            b.profile[whatToSort].toLowerCase()
+          )
+            return -1;
         }
         return 0;
       } else {

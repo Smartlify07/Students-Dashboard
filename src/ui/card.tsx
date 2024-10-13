@@ -7,7 +7,7 @@ export type CardProps = {
 };
 const Card = ({ className, children, style }: CardProps) => {
   return (
-    <div style={style} className={`${className} rounded-[3.5rem]`}>
+    <div style={style} className={`rounded-[3.5rem] ${className} `}>
       {children}
     </div>
   );

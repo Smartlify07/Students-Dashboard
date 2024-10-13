@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="py-[1.6rem] px-[2.4rem] w-full flex items-center justify-between">
       <h1 className="text-[2rem] font-semibold text-slate-950">Studentii</h1>
-      <ul className="flex font-poppins items-center gap-[1.6rem]">
+      <ul className=" font-poppins items-center gap-[1.6rem] hidden lg:flex">
         <li className=" text-[1.6rem] ">
           <NavLink
             className={({ isActive }) =>

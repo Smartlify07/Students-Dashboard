@@ -9,18 +9,21 @@ import { useEffect, useState } from "react";
 import { sortFields } from "../../utils/sortFields";
 import { useSortDropDownContext } from "../../hooks/useSortDropDownContext";
 
-const StudentsListTableDesktop = ({ maxLength }: { maxLength: number }) => {
+const StudentsListTableDesktop = ({ maxLength }: { maxLength?: number }) => {
   const pathname = useLocation().pathname;
   const [students, setStudents] = useState<Student[]>(studentsData);
   const { whatToSort, howToSort } = useSortDropDownContext();
+  const sorted = sortFields(whatToSort!, howToSort!, students);
+
   useEffect(() => {
-    const sorted = sortFields(whatToSort!, howToSort!, students);
-    setStudents(sorted);
-  }, [whatToSort, howToSort]);
+    if (JSON.stringify(students) !== JSON.stringify(sorted)) {
+      setStudents(sorted);
+    }
+  }, [students, sorted]);
 
   return (
-    <Card className="bg-white flex flex-col px-[2.4rem]  py-[2.4rem]">
-      <table className="w-full border-spacing-y-[0.5rem] border-separate">
+    <Card className="bg-white hidden lg:flex flex-col lg:px-[2.4rem]  py-[2.4rem]">
+      <table className="w-full border-spacing-y-[0.5rem] hidden lg:table border-separate">
         <thead className="">
           <tr className="text-[1.4rem]    text-gray-700 font-poppins  font-normal">
             <TableHead
