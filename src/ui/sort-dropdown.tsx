@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { DropDownProps } from "./dashboard/table-head";
 import { useSortDropDownContext } from "../hooks/useSortDropDownContext";
 
-const SortDropdown = ({ isOpen, whatToSort }: DropDownProps) => {
+const SortDropdown = ({ isOpen, whatToSort, className }: DropDownProps) => {
   const { handleSortOption } = useSortDropDownContext();
 
   return (
@@ -17,12 +17,14 @@ const SortDropdown = ({ isOpen, whatToSort }: DropDownProps) => {
           animate={{ opacity: isOpen ? 1 : 0 }}
           exit={{ opacity: 0 }}
           role="filter-dropdown"
-          className=" border z-[1000] backdrop-grayscale-[1] absolute top-[3rem] bg-[#fefefe] flex rounded-[1.2rem] py-[1.2rem] flex-col gap-[0.2rem]"
+          className={` border z-[1000] backdrop-grayscale-[1] absolute top-[3rem] bg-[#fefefe] flex rounded-[1.2rem] py-[1.2rem] flex-col gap-[0.2rem] ${className}`}
         >
           <span
             onClick={() => {
               if (handleSortOption && whatToSort)
-                handleSortOption(whatToSort, "ascending");
+                handleSortOption(whatToSort, {
+                  [whatToSort]: "ascending",
+                });
             }}
             className="hover:bg-gray-100 transition-all px-[1.4rem] py-[1rem]  flex items-center whitespace-nowrap text-[#092307]  cursor-pointer gap-[0.2rem]"
             role="input"
@@ -33,7 +35,9 @@ const SortDropdown = ({ isOpen, whatToSort }: DropDownProps) => {
           <span
             onClick={() => {
               if (handleSortOption && whatToSort)
-                handleSortOption(whatToSort, "descending");
+                handleSortOption(whatToSort, {
+                  [whatToSort]: "descending",
+                });
             }}
             className="hover:bg-gray-100 transition-all px-[1.4rem] py-[1rem] flex items-center whitespace-nowrap  text-[#ca2323] cursor-pointer gap-[0.2rem]"
             role="input"

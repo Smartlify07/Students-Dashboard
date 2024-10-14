@@ -9,10 +9,21 @@ export enum Fields {
 
 export type SortDropdownContextType = {
   whatToSort?: Fields.AverageScore | Fields.StudentName | Fields.WorkCompleted;
-  howToSort?: "ascending" | "descending";
+  howToSort?: {
+    averageScore?: "ascending" | "descending";
+    workCompleted?: "ascending" | "descending";
+    studentName?: "ascending" | "descending";
+    grade?: "ascending" | "descending";
+  };
+
   handleSortOption?: (
     whatToSort: Fields.AverageScore | Fields.StudentName | Fields.WorkCompleted,
-    howToSort: "ascending" | "descending"
+    howToSort: {
+      averageScore?: "ascending" | "descending";
+      workCompleted?: "ascending" | "descending";
+      studentName?: "ascending" | "descending";
+      grade?: "ascending" | "descending";
+    }
   ) => void;
 };
 type SortDropdownProviderProps = {
@@ -22,23 +33,31 @@ type SortDropdownProviderProps = {
 export const SortDropdownContext =
   createContext<SortDropdownContextType | null>({
     whatToSort: Fields.StudentName,
-    howToSort: "ascending",
+    howToSort: {
+      averageScore: "ascending",
+      studentName: "ascending",
+      grade: "ascending",
+      workCompleted: "ascending",
+    },
   });
 
 const SortDropdownProvider = ({ children }: SortDropdownProviderProps) => {
   const [sortOptions, setSortOptions] = useState<SortDropdownContextType>({
-    whatToSort: Fields.StudentName,
-    howToSort: "ascending",
+    whatToSort: Fields.WorkCompleted,
+    howToSort: {
+      workCompleted: "ascending",
+    },
     handleSortOption: (whatToSort, howToSort) => {
       setSortOptions((prevState) => ({
         ...prevState,
-        howToSort: howToSort,
+        howToSort: {
+          ...prevState.howToSort,
+          [whatToSort]: howToSort[whatToSort],
+        },
         whatToSort: whatToSort,
       }));
     },
   });
-  console.log(sortOptions.whatToSort);
-
   return (
     <SortDropdownContext.Provider
       value={{

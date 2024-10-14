@@ -13,7 +13,7 @@ const StudentsListTableDesktop = ({ maxLength }: { maxLength?: number }) => {
   const pathname = useLocation().pathname;
   const [students, setStudents] = useState<Student[]>(studentsData);
   const { whatToSort, howToSort } = useSortDropDownContext();
-  const sorted = sortFields(whatToSort!, howToSort!, students);
+  const sorted = sortFields(whatToSort!, students, howToSort!);
 
   useEffect(() => {
     if (JSON.stringify(students) !== JSON.stringify(sorted)) {

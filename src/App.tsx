@@ -8,6 +8,7 @@ import Dashboard from "./pages/dashboard";
 import RootLayout from "./layout/RootLayout";
 import StudentsPage from "./pages/students-page";
 import SortDropdownProvider from "./context/SortDropDownContext";
+import SortModalProvider from "./context/SortModalContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,9 +17,11 @@ const router = createBrowserRouter(
       <Route
         path="students"
         element={
-          <SortDropdownProvider>
-            <StudentsPage />
-          </SortDropdownProvider>
+          <SortModalProvider>
+            <SortDropdownProvider>
+              <StudentsPage />
+            </SortDropdownProvider>
+          </SortModalProvider>
         }
       />
     </Route>

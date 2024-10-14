@@ -20,6 +20,7 @@ type TableHeadProps = {
 
 export type DropDownProps = SortDropdownContextType & {
   isOpen?: boolean;
+  className?: string;
   setIsOpen?: Dispatch<SetStateAction<DropDownProps>>;
 };
 const TableHead = ({
