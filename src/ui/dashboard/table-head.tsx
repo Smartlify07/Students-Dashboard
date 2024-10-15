@@ -36,7 +36,7 @@ const TableHead = ({
   const toggleIsOpen = () => {
     setIsOpen({ isOpen: !isOpen.isOpen });
   };
-  const myRef = useClickOutside(() => {
+  const myRef = useClickOutside<HTMLDivElement>(() => {
     setIsOpen((prevState) => ({ ...prevState, isOpen: false }));
   });
   return (
