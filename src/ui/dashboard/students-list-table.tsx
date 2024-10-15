@@ -22,7 +22,7 @@ const StudentsListTableDesktop = ({ maxLength }: { maxLength?: number }) => {
   }, [students, sorted]);
 
   return (
-    <Card className="bg-white hidden lg:flex flex-col lg:px-[2.4rem]  py-[2.4rem]">
+    <Card className="bg-white hidden rounded-[3.5rem] lg:flex flex-col lg:px-[2.4rem]  py-[2.4rem]">
       <table className="w-full border-spacing-y-[0.5rem] hidden lg:table border-separate">
         <thead className="">
           <tr className="text-[1.4rem]    text-gray-700 font-poppins  font-normal">

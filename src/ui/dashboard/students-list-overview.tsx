@@ -1,4 +1,5 @@
 import StudentsListOverviewTabs from "./student-list-overview-tabs";
+import StudentListTableMobile from "./student-list-table-mobile";
 import StudentsListTableDesktop from "./students-list-table";
 
 const StudentsListOverview = () => {
@@ -11,6 +12,7 @@ const StudentsListOverview = () => {
         <StudentsListOverviewTabs />
       </div>
       <StudentsListTableDesktop maxLength={5} />
+      <StudentListTableMobile maxLength={5} />
     </section>
   );
 };

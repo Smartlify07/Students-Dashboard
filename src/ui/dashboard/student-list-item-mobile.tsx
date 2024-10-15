@@ -15,7 +15,7 @@ export const StudentListItemMobile = ({
   return (
     <Card
       style={{ backgroundColor: lightBgColor }}
-      className="flex flex-col gap-[2rem]  py-[1.2rem] px-[1.4rem]  lg:hidden rounded-[0.5rem]"
+      className="flex flex-col gap-[2rem]  pt-[1.2rem] pb-[1.6rem] px-[1.4rem]  lg:hidden rounded-[0.5rem]"
     >
       <div className="flex gap-[0.4rem] items-center">
         <Avatar
@@ -28,7 +28,7 @@ export const StudentListItemMobile = ({
       </div>
 
       <div className="flex flex-col gap-[0.4rem]   font-poppins">
-        <h1 className="text-[1.2rem] md:text-[1.4rem]">Average score:</h1>
+        <p className="text-[1.4rem] md:text-[1.4rem]">Average score:</p>
         <div className="flex w-full  text-[2.2rem] text-center text-[#0b0b0b] font-medium font-poppins  ">
           <div
             className=" h-[6rem]  relative text-[#0b0b0b] flex items-center justify-center   rounded-[1.2rem] rounded-br-[1.2rem]"
@@ -59,17 +59,17 @@ export const StudentListItemMobile = ({
           </div>
         </div>
       </div>
-      <h1 className="text-[1.6rem] md:text-[1.8rem] font-poppins flex items-center">
-        <span className="text-[1.2rem] md:text-[1.4rem] font-normal">
+      <p className="text-[1.6rem] md:text-[1.8rem] font-poppins flex items-center">
+        <span className="text-[1.4rem] md:text-[1.4rem] font-normal">
           Grade:{" "}
-          <span className="text-[1.6rem] md:text-[2.4rem] font-medium">
+          <span className="text-[1.8rem] md:text-[2.4rem] font-medium">
             {calculateGrade(averageScore)}
           </span>
         </span>
-      </h1>
+      </p>
 
       <p className="text-[1.6rem] md:text-[2rem] flex flex-col    text-[#0b0b0b]  font-normal font-poppins">
-        <span className="font-normal text-[1.2rem] md:text-[1.4rem]">
+        <span className="font-normal text-[1.4rem] md:text-[1.4rem]">
           Work Completed:
         </span>
         <span className="self-start font-medium ">{workCompleted} / 40</span>

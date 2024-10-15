@@ -3,7 +3,7 @@ import Profile from "./profile";
 
 const Navbar = () => {
   return (
-    <nav className="py-[1.6rem] px-[2.4rem] w-full flex items-center justify-between">
+    <nav className="py-[1.6rem] px-[5rem] w-full flex items-center justify-between">
       <h1 className="text-[2rem] font-semibold font-poppins text-slate-950">
         Studentii
       </h1>

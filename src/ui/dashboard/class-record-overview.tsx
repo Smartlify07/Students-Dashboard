@@ -4,10 +4,11 @@ import ClassRecordOverviewCard from "./class-record-overview-card";
 
 const ClassRecordOverview = () => {
   return (
-    <aside className=" md:w-6/12 lg:flex-row lg:w-6/12 flex ">
+    <aside className=" lg:w-6/12 lg:flex-row  flex ">
       <ClassRecordOverviewCard
         avatarImage={BeanHeadImage}
         backgroundColor="#86D718"
+        className="rounded-[3.5rem]"
         width="30%"
         gradeAverage={80}
         peopleWithCorrespondingAverage={
@@ -19,6 +20,7 @@ const ClassRecordOverview = () => {
       />
       <ClassRecordOverviewCard
         avatarImage={BeanHeadImage}
+        className="rounded-[3.5rem]"
         backgroundColor="#FFC329"
         width="50%"
         gradeAverage={50}
@@ -32,6 +34,7 @@ const ClassRecordOverview = () => {
       <ClassRecordOverviewCard
         avatarImage={BeanHeadImage}
         backgroundColor="#FF8158"
+        className="rounded-[3.5rem]"
         width="30%"
         gradeAverage={20}
         peopleWithCorrespondingAverage={

@@ -3,7 +3,7 @@ import GradesOverview from "./grades-overview";
 
 const OverViewSection = () => {
   return (
-    <section className="flex lg:h-[30rem] gap-[3.2rem] w-full mt-[6rem] items-stretch justify-between">
+    <section className="flex flex-col lg:flex-row lg:h-[30rem] gap-[3.2rem] w-full mt-[6rem] items-stretch justify-between">
       <GradesOverview />
       <ClassRecordOverview />
     </section>

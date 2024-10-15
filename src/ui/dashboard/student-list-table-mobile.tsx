@@ -7,8 +7,9 @@ import Card from "../card";
 import SortModal from "../modal";
 import { useModalContext } from "../../hooks/useModalContext";
 import { AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const StudentListTableMobile = () => {
+const StudentListTableMobile = ({ maxLength }: { maxLength?: number }) => {
   const [students, setStudents] = useState<Student[]>(studentsData);
   const { whatToSort, howToSort } = useSortDropDownContext();
   const { isOpen, onToggle } = useModalContext();
@@ -20,10 +21,10 @@ const StudentListTableMobile = () => {
     }
   }, [students, sorted]);
   return (
-    <div className="flex flex-col relative w-full mt-[3rem]">
+    <div className="flex flex-col relative w-full lg:hidden mt-[3rem]">
       <button
         onClick={onToggle}
-        className="py-[1.2rem] self-end px-[1.5rem]  mb-[3rem] bg-[rgba(255,165,0)] text-white   rounded-[1rem] text-[1.6rem] font-normal font-poppins  "
+        className="py-[1.2rem] self-end px-[1.5rem]  mb-[3rem] bg-[rgba(255,165,0)] text-[#0b0b0b] font-medium   rounded-[1rem] text-[1.6rem] font-poppins  "
       >
         Sort students
       </button>
@@ -33,9 +34,18 @@ const StudentListTableMobile = () => {
       </AnimatePresence>
 
       <Card className="bg-white flex flex-col gap-[1.6rem] px-[1rem] py-[1rem] rounded-[0.5rem]">
-        {students.map((student) => (
+        {students.slice(0, maxLength ? maxLength : -1).map((student) => (
           <StudentListItemMobile key={student.id} {...student} />
         ))}
+
+        {maxLength && (
+          <Link
+            to="/students"
+            className="my-[2rem] text-[1.6rem] self-center font-medium font-poppins text-[#0b0b0b]"
+          >
+            View All
+          </Link>
+        )}
       </Card>
     </div>
   );

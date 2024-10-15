@@ -3,6 +3,7 @@ type AvatarProps = {
   avatarImage?: string;
   children?: string;
   imageClassName?: string;
+  onClick?: () => void;
 };
 const Avatar = ({
   className,
