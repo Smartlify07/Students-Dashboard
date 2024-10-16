@@ -25,7 +25,7 @@ const DoughnutChart = () => {
   };
 
   return (
-    <div className="w-[14rem] left-[-0.5rem] md:left-[-2rem] relative h-[16rem] md:h-[25rem] md:w-[25rem]">
+    <div className="w-[14rem] left-[-1.4rem] md:left-[-2rem] relative h-[16rem] md:h-[25rem] md:w-[25rem]">
       <Doughnut data={data} options={options} />
     </div>
   );
