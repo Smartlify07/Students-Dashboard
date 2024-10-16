@@ -36,7 +36,7 @@ const OverViewSection = () => {
               animate={{ right: 0, opacity: 1 }}
               exit={{ right: -500, opacity: 0, display: "none" }}
               transition={{ duration: 0.3 }}
-              className="w-full border relative"
+              className="w-full  relative"
             >
               <ClassRecordOverview />
             </motion.div>
