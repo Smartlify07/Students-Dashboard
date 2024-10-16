@@ -30,8 +30,8 @@ const ClassRecordOverviewCard = ({
         avatarImage={firstStudentWithCorrespondingAverage.profile.profileImage}
       />
 
-      <div className="flex flex-col pl-[1rem] lg:pl-[2rem] md:w-[8rem] lg:w-[7.726rem]  pb-[2rem] gap-[0.2rem]">
-        <h1 className="md:text-[3.6rem] lg:text-[4.8rem] font-semibold font-poppins text-[#0b0b0b]">
+      <div className="flex flex-col pl-[1rem] lg:pl-[2rem] w-full md:w-[8rem] lg:w-[7.726rem]  pb-[2rem] gap-[0.2rem]">
+        <h1 className="text-[2.4rem] md:text-[3.6rem] lg:text-[4.8rem] font-semibold font-poppins text-[#0b0b0b]">
           {peopleWithCorrespondingAverage}
         </h1>
 

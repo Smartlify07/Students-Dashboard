@@ -7,12 +7,13 @@ import Card from "../card";
 import SortModal from "../modal";
 import { useModalContext } from "../../hooks/useModalContext";
 import { AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const StudentListTableMobile = ({ maxLength }: { maxLength?: number }) => {
   const [students, setStudents] = useState<Student[]>(studentsData);
   const { whatToSort, howToSort } = useSortDropDownContext();
   const { isOpen, onToggle } = useModalContext();
+  const pathname = useLocation().pathname;
   const sorted = sortFields(whatToSort!, students, howToSort!);
 
   useEffect(() => {
@@ -22,12 +23,16 @@ const StudentListTableMobile = ({ maxLength }: { maxLength?: number }) => {
   }, [students, sorted]);
   return (
     <div className="flex flex-col relative w-full lg:hidden mt-[3rem]">
-      <button
-        onClick={onToggle}
-        className="py-[1.2rem] self-end px-[1.5rem]  mb-[3rem] bg-[rgba(255,165,0)] text-[#0b0b0b] font-medium   rounded-[1rem] text-[1.6rem] font-poppins  "
-      >
-        Sort students
-      </button>
+      {pathname === "/students" && (
+        <button
+          onClick={() => {
+            if (onToggle) onToggle();
+          }}
+          className="py-[1.2rem] self-end px-[1.5rem]  mb-[3rem] bg-[rgba(255,165,0)] text-[#0b0b0b] font-medium   rounded-[1rem] text-[1.6rem] font-poppins  "
+        >
+          Sort students
+        </button>
+      )}
 
       <AnimatePresence mode="popLayout">
         {isOpen && <SortModal />}

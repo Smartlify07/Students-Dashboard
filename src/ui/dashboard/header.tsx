@@ -4,8 +4,8 @@ import PupilsAvatars from "./pupils-avatars";
 const Header = () => {
   return (
     <section className="flex w-full  items-center justify-between">
-      <div className="flex items-center relative gap-[6rem]  w-8/12">
-        <h1 className="text-[#0b0b0b] font-raleway md:text-[3.6rem] lg:text-[4.8rem] font-semibold">
+      <div className="flex flex-col md:flex-row items-center relative gap-[1rem] md:gap-[6rem] w-full  md:w-8/12">
+        <h1 className="text-[#0b0b0b] font-raleway text-[3.6rem] md:text-[3.6rem] lg:text-[4.8rem] font-semibold">
           Dashboard
         </h1>
         <div className="flex gap-[0.5rem] items-end">

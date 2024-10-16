@@ -15,7 +15,6 @@ const Card = ({
   animation,
   innerRef,
 }: CardProps) => {
-  console.log(innerRef);
   return (
     <motion.div
       ref={innerRef}

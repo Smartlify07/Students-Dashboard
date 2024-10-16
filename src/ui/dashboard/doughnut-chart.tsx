@@ -16,16 +16,16 @@ const DoughnutChart = () => {
     ],
   };
   const options = {
-    cutout: "70%", // Creates the 'doughnut' effect
+    cutout: "70%",
     plugins: {
       legend: {
-        display: false, // Hide legend if not needed
+        display: false,
       },
     },
   };
 
   return (
-    <div style={{ width: "250px", height: "250px" }}>
+    <div className="w-[16rem] left-[-4] md:left-[-2rem] relative h-[16rem] md:h-[25rem] md:w-[25rem]">
       <Doughnut data={data} options={options} />
     </div>
   );

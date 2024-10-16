@@ -4,7 +4,7 @@ import ClassRecordOverviewCard from "./class-record-overview-card";
 
 const ClassRecordOverview = () => {
   return (
-    <aside className=" lg:w-6/12 lg:flex-row  flex ">
+    <aside className=" lg:w-6/12   lg:flex-row w-full  flex ">
       <ClassRecordOverviewCard
         avatarImage={BeanHeadImage}
         backgroundColor="#86D718"

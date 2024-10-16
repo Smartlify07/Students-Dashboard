@@ -21,8 +21,8 @@ const Profile = () => {
         imageClassName="rounded-full w-[4rem] h-[4rem]"
       />
 
-      <div className="flex flex-col gap-[0.rem]">
-        <h1 className="text-[#0b0b0b] leading-[1.5rem] text-[1.4rem] font-semibold font-poppins">
+      <div className=" md:flex hidden flex-col gap-[0.rem]">
+        <h1 className="text-[#0b0b0b] hidden md:block leading-[1.5rem] text-[1.4rem] font-semibold font-poppins">
           Jane Smith
         </h1>
         <h2 className="text-neutral-500 font-poppins text-[1.2rem] font-medium">
