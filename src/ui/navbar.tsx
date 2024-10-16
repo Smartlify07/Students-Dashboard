@@ -1,6 +1,6 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Profile from "./profile";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Card from "./card";
 import Logo from "../assets/logo-2.webp";
@@ -8,9 +8,21 @@ import { useClickOutside } from "../hooks/useClickOutside";
 
 const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const ref = useClickOutside<HTMLDivElement>(() => setIsNavbarOpen(false));
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const ref = useClickOutside<HTMLDivElement>(() => {
+    console.log(buttonRef.current);
+    if (!buttonRef.current?.contains(event!.target as Node)) {
+      setIsNavbarOpen(false);
+    }
+  });
+
   const linkClassName =
     "text-[1.6rem] px-[1rem] flex items-center gap-[0.3rem] py-[0.5rem] hover:py-[1rem]  font-medium transition-all hover:bg-[#F2F9FF] rounded-[1rem]";
+  const pathname = useLocation();
+
+  useEffect(() => {
+    setIsNavbarOpen(false);
+  }, [pathname]);
   return (
     <nav className="py-[1.6rem] px-[2rem] md:px-[5rem] w-full flex items-center justify-between">
       <h1 className="text-[2rem] hidden md:block font-semibold font-poppins text-slate-950">
@@ -18,8 +30,14 @@ const Navbar = () => {
       </h1>
 
       <button
+        ref={buttonRef}
         onClick={() => {
-          setIsNavbarOpen((prevState) => !prevState);
+          if (isNavbarOpen === true) {
+            console.log(true);
+            setIsNavbarOpen(false);
+          } else {
+            setIsNavbarOpen(true);
+          }
         }}
         className="flex flex-col md:hidden z-[1000] "
       >
