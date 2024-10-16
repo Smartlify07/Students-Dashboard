@@ -1,15 +1,29 @@
-import { CSSProperties, ReactNode } from "react";
+import { AnimationProps, motion } from "framer-motion";
+import { CSSProperties, MutableRefObject, ReactNode } from "react";
 
 export type CardProps = {
   className?: string;
   children?: ReactNode;
   style?: CSSProperties;
+  animation?: AnimationProps;
+  innerRef?: MutableRefObject<HTMLDivElement | null>;
 };
-const Card = ({ className, children, style }: CardProps) => {
+const Card = ({
+  className,
+  children,
+  style,
+  animation,
+  innerRef,
+}: CardProps) => {
   return (
-    <div style={style} className={`${className} rounded-[3.5rem]`}>
+    <motion.div
+      ref={innerRef}
+      {...animation}
+      style={style}
+      className={`rounded-[rem] ${className} `}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 };
 

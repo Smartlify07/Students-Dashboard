@@ -1,23 +1,17 @@
 import Avatar from "../avatar";
-import Avatar1 from "../../assets/avatars/beanhead.svg";
+import { studentsData } from "../../utils/data";
 
 const PupilsAvatars = () => {
-  return (
-    <div className="flex items-center ">
+  const firstThreeStudents = studentsData
+    .slice(0, 3)
+    .map((student) => (
       <Avatar
-        className="rounded-full w-[5rem] items-center flex justify-center h-[5rem] border-2 border-white "
-        avatarImage={Avatar1}
+        key={student.id}
+        className="rounded-full w-[6rem] items-center flex justify-center h-[6rem] border-2 border-white "
+        avatarImage={student?.profile?.profileImage}
       />
-      <Avatar
-        className="rounded-full w-[5rem] relative left-[-0.3rem] items-center flex justify-center h-[5rem] border-2 border-white "
-        avatarImage={Avatar1}
-      />
-      <Avatar
-        className="rounded-full w-[5rem] relative -left-[0.7rem] items-center flex justify-center h-[5rem] border-2 border-white "
-        avatarImage={Avatar1}
-      />
-    </div>
-  );
+    ));
+  return <div className="flex items-center ">{firstThreeStudents}</div>;
 };
 
 export default PupilsAvatars;

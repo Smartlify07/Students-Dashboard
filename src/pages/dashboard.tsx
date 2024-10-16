@@ -1,6 +1,6 @@
-import Header from "./header";
-import OverViewSection from "./overview-section";
-import StudentsListOverview from "./students-list-overview";
+import Header from "../ui/dashboard/header";
+import OverViewSection from "../ui/dashboard/overview-section";
+import StudentsListOverview from "../ui/dashboard/students-list-overview";
 
 const Dashboard = () => {
   return (

@@ -2,12 +2,23 @@ type AvatarProps = {
   className?: string;
   avatarImage?: string;
   children?: string;
+  imageClassName?: string;
+  onClick?: () => void;
 };
-const Avatar = ({ className, avatarImage, children }: AvatarProps) => {
+const Avatar = ({
+  className,
+  avatarImage,
+  children,
+  imageClassName,
+}: AvatarProps) => {
   return (
     <div className={className}>
       {avatarImage ? (
-        <img className="object-cover" src={avatarImage} alt="avatar" />
+        <img
+          className={`${imageClassName} object-cover`}
+          src={avatarImage}
+          alt="avatar"
+        />
       ) : null}
       {children}
     </div>
