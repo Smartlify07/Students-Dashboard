@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Card from "./card";
 
 const Navbar = () => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(true);
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const linkClassName =
     "text-[1.6rem] px-[1rem] flex items-center gap-[0.3rem] py-[1rem]  font-medium transition-all hover:bg-[#F2F9FF] rounded-[1rem]";
   return (
@@ -45,6 +45,7 @@ const Navbar = () => {
       </button>
 
       <AnimatePresence>
+        ''
         {isNavbarOpen && (
           <Card
             className="flex flex-col md:hidden  z-[1000] border left-[0.2rem] w- top-[5rem] px-[1rem] py-[2.4rem]  w-[25rem] shadow-xl font-poppins absolute  rounded-[1rem] bg-[#fff] "
