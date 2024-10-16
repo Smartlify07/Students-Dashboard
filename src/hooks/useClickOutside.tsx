@@ -8,9 +8,6 @@ export const useClickOutside = <T extends HTMLElement>(
     const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         callback();
-        console.log("click outside");
-      } else {
-        throw new Error("ref is undefined");
       }
     };
 

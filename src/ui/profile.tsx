@@ -6,12 +6,10 @@ import { AnimatePresence } from "framer-motion";
 
 const Profile = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-  console.log(isDropdownOpen);
   return (
     <div
       onClick={() => {
         setIsDropdownOpen((prevState) => !prevState);
-        console.log("clicked", isDropdownOpen);
       }}
       className="flex items-center gap-[0.5rem]  relative"
     >

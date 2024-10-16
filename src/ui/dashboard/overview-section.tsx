@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const OverViewSection = () => {
   const [slide, setSlide] = useState(1);
-  console.log(slide);
 
   return (
     <section className="w-full ">

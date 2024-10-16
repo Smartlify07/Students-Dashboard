@@ -14,7 +14,6 @@ const SortModalProvider = ({ children }: { children: ReactNode }) => {
     setIsOpen((prevState) => ({
       isOpen: !prevState.isOpen,
     }));
-    console.log("Is open", isOpen);
   };
   return (
     <SortModalContext.Provider value={{ isOpen: isOpen.isOpen, onToggle }}>
