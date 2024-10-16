@@ -10,7 +10,6 @@ const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const ref = useClickOutside<HTMLDivElement>(() => {
-    console.log(buttonRef.current);
     if (!buttonRef.current?.contains(event!.target as Node)) {
       setIsNavbarOpen(false);
     }
@@ -113,7 +112,7 @@ const Navbar = () => {
       </AnimatePresence>
 
       {/* Desktop */}
-      <ul className=" font-poppins items-center gap-[1.6rem] hidden lg:flex">
+      <ul className=" font-poppins items-center gap-[1.6rem] hidden md:flex">
         <li className=" text-[1.6rem] ">
           <NavLink
             className={({ isActive }) =>
