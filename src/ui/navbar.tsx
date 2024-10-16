@@ -47,7 +47,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isNavbarOpen && (
           <Card
-            className="flex flex-col  z-[1000] border left-0 w- top-[5rem] px-[1rem] py-[2.4rem]  w-[25rem] shadow-xl font-poppins absolute  rounded-[1rem] bg-[#fff] "
+            className="flex flex-col md:hidden  z-[1000] border left-[0.2rem] w- top-[5rem] px-[1rem] py-[2.4rem]  w-[25rem] shadow-xl font-poppins absolute  rounded-[1rem] bg-[#fff] "
             animation={{
               initial: { y: -10 },
               animate: { y: 0 },
